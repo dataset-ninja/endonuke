@@ -1,4 +1,4 @@
-If you make use of the Region Aggregated Attention CNN for Disease Detection in Fruit Images Dataset data, please cite the following reference (to be prepared after the challenge workshop) in any publications:
+If you make use of the ENDONUKE Dataset dedicated to train the models for nuclei detection in endometrium samples data, please cite the following reference (to be prepared after the challenge workshop) in any publications:
 
 ```
 @misc{ENDONUKE,
