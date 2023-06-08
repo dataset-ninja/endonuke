@@ -86,9 +86,7 @@ def build_stats():
         dtools.ClassSizes(project_meta),
     ]
     heatmaps = dtools.ClassesHeatmaps(project_meta)
-    classes_previews = dtools.ClassesPreview(
-        project_meta, project_info, force=False, project_id=project_info.id, row_height=100
-    )
+
     previews = dtools.Previews(project_id, project_meta, api, team_id)
 
     for stat in stats:
@@ -98,11 +96,9 @@ def build_stats():
 
     if not sly.fs.file_exists(f"./stats/{heatmaps.basename_stem}.png"):
         heatmaps.force = True
-    if not sly.fs.file_exists(f"./visualizations/{classes_previews.basename_stem}.webm"):
-        classes_previews.force = True
     if not api.file.dir_exists(team_id, f"/dataset/{project_id}/renders/"):
         previews.force = True
-    vstats = [stat for stat in [heatmaps, classes_previews, previews] if stat.force]
+    vstats = [stat for stat in [heatmaps, previews] if stat.force]
 
     dtools.count_stats(
         project_id,
@@ -118,7 +114,12 @@ def build_stats():
 
     if len(vstats) > 0:
         if heatmaps.force:
-            heatmaps.to_image(f"./stats/{heatmaps.basename_stem}.png")
+            heatmaps.to_image(
+                f"./stats/{heatmaps.basename_stem}.png",
+                outer_grid_spacing=10,
+                output_width=940,
+                grid_spacing=10,
+            )
         if previews.force:
             previews.close()
 
@@ -128,7 +129,7 @@ def build_stats():
 def build_visualizations():
     renderers = [
         dtools.Poster(project_id, project_meta, force=False, is_detection_task=True),
-        dtools.SideAnnotationsGrid(project_id, project_meta),
+        dtools.SideAnnotationsGrid(project_id, project_meta, rows=2),
     ]
     animators = [
         dtools.HorizontalGrid(project_id, project_meta, is_detection_task=True),
@@ -163,19 +164,32 @@ def build_summary():
     print("Building summary...")
     summary_data = dtools.get_summary_data_sly(project_info)
 
-    classes_preview = None
-    if sly.fs.file_exists("./visualizations/classes_preview.webm"):
-        classes_preview = (
-            f"{custom_data['github_url']}/raw/main/visualizations/classes_preview.webm"
-        )
+    summary_content = dtools.generate_summary_content(summary_data)
 
-    summary_content = dtools.generate_summary_content(
-        summary_data,
-        vis_url=classes_preview,
-    )
+    vis_url = f"{custom_data['github_url']}/raw/main/visualizations/side_annotations_grid.png"
+    summary_content += f"\n\nHere is the visualized example grid with annotations:\n\n"
+    summary_content += f'<img src="{vis_url}">\n'
 
     with open("SUMMARY.md", "w") as summary_file:
         summary_file.write(summary_content)
+    print("Done.")
+
+
+def build_license():
+    print("Building license...")
+    ds_name = custom_data["name"]
+    ds_fullname = custom_data["fullname"]
+    license_url = custom_data["license_url"]
+    license = custom_data["license"]
+    homepage = custom_data["homepage_url"]
+    license_content = (
+        f"The {ds_name} {ds_fullname} data is under [{license}]({license_url}) license."
+    )
+    license_content += f"\n\n[🔗 Source]({homepage})\n\n"
+
+    with open("LICENSE.md", "w") as license_file:
+        license_file.write(license_content)
+
     print("Done.")
 
 
@@ -184,6 +198,7 @@ def main():
     build_stats()
     build_visualizations()
     build_summary()
+    build_license()
 
 
 if __name__ == "__main__":
