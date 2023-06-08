@@ -58,7 +58,7 @@ if len(custom_data) >= 0:
     # preset fields
     custom_data = {
         # required fields
-        "name": "ENDONUKE",
+        "name": PROJECT_NAME,
         "fullname": "Dataset dedicated to train the models for nuclei detection in endometrium samples",
         "cv_tasks": ["object detection"],
         "annotation_types": ["object detection"],
@@ -87,8 +87,8 @@ custom_data = project_info.custom_data
 
 def build_stats():
     stats = [
-        dtools.ClassBalance(project_meta, force=False),
-        dtools.ClassCooccurrence(project_meta, force=False),
+        dtools.ClassBalance(project_meta),
+        dtools.ClassCooccurrence(project_meta),
         dtools.ClassesPerImage(project_meta, datasets),
         dtools.ObjectsDistribution(project_meta),
         dtools.ObjectSizes(project_meta),
@@ -137,12 +137,12 @@ def build_stats():
 
 def build_visualizations():
     renderers = [
-        dtools.Poster(project_id, project_meta, force=False, is_detection_task=True),
+        dtools.Poster(project_id, project_meta, is_detection_task=True),
         dtools.SideAnnotationsGrid(project_id, project_meta, rows=2),
     ]
     animators = [
         dtools.HorizontalGrid(project_id, project_meta, is_detection_task=True),
-        dtools.VerticalGrid(project_id, project_meta, force=False, is_detection_task=True),
+        dtools.VerticalGrid(project_id, project_meta, is_detection_task=True),
     ]
 
     for vis in renderers + animators:
