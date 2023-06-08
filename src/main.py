@@ -1,10 +1,10 @@
 import json
 import os
 
+import supervisely as sly
 from dotenv import load_dotenv
 
 import dataset_tools as dtools
-import supervisely as sly
 from src.convert import convert_and_upload_supervisely_project
 
 if sly.is_development():
@@ -18,6 +18,7 @@ team_id = sly.env.team_id()
 workspace_id = sly.env.workspace_id()
 
 PROJECT_NAME = "ENDONUKE"
+DOWNLOAD_ORIGINAL_URL = "https://www.ispras.ru/conf/endonuke/data.zip"
 project_info = api.project.get_info_by_name(workspace_id, PROJECT_NAME)
 if project_info is None:
     project_info = convert_and_upload_supervisely_project(api, workspace_id)
@@ -41,7 +42,15 @@ custom_data = project_info.custom_data
 
 # 2. get download link
 download_sly_url = dtools.prepare_download_link(project_info)
-dtools.update_sly_url_dict({project_id: download_sly_url})
+dtools.update_sly_url_dict(
+    {
+        PROJECT_NAME: {
+            "id": project_id,
+            "download_sly_url": download_sly_url,
+            "download_original_url": DOWNLOAD_ORIGINAL_URL,
+        }
+    }
+)
 
 
 # 3. upload custom data
@@ -63,7 +72,7 @@ if len(custom_data) >= 0:
         "citation_url": "https://github.com/dataset-ninja/endonuke",
         "download_sly_url": download_sly_url,
         # optional fields
-        "download_original_url": "https://www.ispras.ru/conf/endonuke/data.zip",
+        "download_original_url": DOWNLOAD_ORIGINAL_URL,
         # "paper": None,
         # "organization_name": None,
         # "organization_url": None,
@@ -78,7 +87,7 @@ custom_data = project_info.custom_data
 
 def build_stats():
     stats = [
-        dtools.ClassBalance(project_meta),
+        dtools.ClassBalance(project_meta, force=True),
         dtools.ClassCooccurrence(project_meta, force=False),
         dtools.ClassesPerImage(project_meta, datasets),
         dtools.ObjectsDistribution(project_meta),
