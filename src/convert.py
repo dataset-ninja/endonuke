@@ -3,9 +3,10 @@
 import glob
 import os
 
+from tqdm import tqdm
+
 import supervisely as sly
 from supervisely.io.fs import get_file_name
-from tqdm import tqdm
 
 project_name = "ENDONUKE"
 dataset_path = "/Users/almaz/Downloads/data/dataset"
@@ -43,9 +44,9 @@ def convert_and_upload_supervisely_project(api, workspace_id):
     images_names = os.listdir(images_path)
     annotation_path = os.path.join(dataset_path, "labels")
 
-    obj_class_stroma = sly.ObjClass("stroma", sly.Point)
-    obj_class_epithelium = sly.ObjClass("epithelium", sly.Point)
-    obj_class_other_nuclei = sly.ObjClass("other nuclei", sly.Point)
+    obj_class_stroma = sly.ObjClass("stroma", sly.Point, color=[15, 105, 138])
+    obj_class_epithelium = sly.ObjClass("epithelium", sly.Point, color=[208, 2, 27])
+    obj_class_other_nuclei = sly.ObjClass("other nuclei", sly.Point, color=[138, 37, 15])
     index_to_class = {0: obj_class_stroma, 1: obj_class_epithelium, 2: obj_class_other_nuclei}
 
     tag_meta_ptg1 = sly.TagMeta("ptg1", sly.TagValueType.NONE)
@@ -87,7 +88,6 @@ def convert_and_upload_supervisely_project(api, workspace_id):
     api.project.update_meta(project.id, meta.to_json())
 
     dataset = api.dataset.create(project.id, ds_name)
-
 
     bulk_anns = glob.glob(annotation_path + "/*/*/*.txt")
 
