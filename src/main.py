@@ -137,12 +137,12 @@ def build_stats():
 
 def build_visualizations():
     renderers = [
-        dtools.Poster(project_id, project_meta, is_detection_task=True),
+        dtools.Poster(project_id, project_meta),
         dtools.SideAnnotationsGrid(project_id, project_meta, rows=2),
     ]
     animators = [
-        dtools.HorizontalGrid(project_id, project_meta, is_detection_task=True),
-        dtools.VerticalGrid(project_id, project_meta, is_detection_task=True),
+        dtools.HorizontalGrid(project_id, project_meta),
+        dtools.VerticalGrid(project_id, project_meta),
     ]
 
     for vis in renderers + animators:
