@@ -1,2 +1,3 @@
-# endonuke
-Dataset dedicated to train the models for nuclei detection in endometrium samples
+# ENDONUKE: NUCLEI DETECTION IN ENDOMETRIUM SAMPLES
+
+ENDONUKE is a dataset for object detection tasks.

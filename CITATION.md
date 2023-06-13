@@ -1,10 +1,11 @@
-If you make use of the ENDONUKE Dataset dedicated to train the models for nuclei detection in endometrium samples data, please cite the following reference (to be prepared after the challenge workshop) in any publications:
+If you make use of the ENDONUKE data, please cite the following reference:
 
-```
+``` bibtex 
 @misc{ENDONUKE,
-	author = "Anton Naumov, Andrey Ivanov, Egor Ushakov, Evgeny Karpulevich, Tatiana Khovanskaya, Alexandra Konyukova, Konstantin Midiber, Nikita Rybak, Maria Ponomareva, Alesya Lesko, Ekaterina Volkova, Polina Vishnyakova, Sergey Nora, Liudmila Mikhaleva, Timur Fatkhudinov, ispras",
-	title = ENDONUKE: DATASET DEDICATED TO TRAIN THE MODELS FOR NUCLEI DETECTION IN ENDOMETRIUM SAMPLES,
-	howpublished = "https://endonuke.ispras.ru/"
+	author = "TO BE FILLED MANUALLY!",
+	title = "ENDONUKE: NUCLEI DETECTION IN ENDOMETRIUM SAMPLES",
+	year = {2021},
+	url = "https://endonuke.ispras.ru/"
 }
 ```
 

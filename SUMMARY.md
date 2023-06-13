@@ -1,4 +1,4 @@
-**ENDONUKE** (Dataset dedicated to train the models for nuclei detection in endometrium samples) is a dataset for object detection tasks. It is applicable or relevant across various domains.
+**ENDONUKE** (ENDONUKE: NUCLEI DETECTION IN ENDOMETRIUM SAMPLES) is a dataset for object detection tasks. It is used in the medical industry.
 
 The dataset consists of 1780 images with 210420 labeled objects belonging to 3 different classes including *stroma*, *epithelium*, and *other nuclei*.
 
