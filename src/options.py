@@ -18,7 +18,7 @@ POSTER_TITLE: str = None
 ###############################################################
 #### * Set up visualization params for HorizontalGrid class ###
 HORIZONTAL_GRID_ROWS: int = 2
-HORIZONTAL_GRID_COLS: int = 5
+HORIZONTAL_GRID_COLS: int = 6
 HORIZONTAL_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 
@@ -34,7 +34,7 @@ VERTICAL_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 # * Set up visualization params for SideAnnotationsGrid class #
 SIDE_ANNOTATIONS_GRID_ROWS: int = 2
-SIDE_ANNOTATIONS_GRID_COLS: int = 3
+SIDE_ANNOTATIONS_GRID_COLS: int = 4
 SIDE_ANNOTATIONS_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 
