@@ -13,7 +13,7 @@ URL = {https://www.mdpi.com/2306-5729/7/6/75},
 ISSN = {2306-5729},
 ABSTRACT = {We present EndoNuke, an open dataset consisting of tiles from endometrium immunohistochemistry slides with the nuclei annotated as keypoints. Several experts with various experience have annotated the dataset. Apart from gathering the data and creating the annotation, we have performed an agreement study and analyzed the distribution of nuclei staining intensity.},
 DOI = {10.3390/data7060075}
-}PASTE HERE CUSTOM CITATION FROM THE SOURCE URL
+}
 ```
 
 [🔗 Source](https://www.mdpi.com/2306-5729/7/6/75)
