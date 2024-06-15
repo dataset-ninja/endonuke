@@ -15,6 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME = "EndoNuke"
 PROJECT_NAME_FULL = "EndoNuke: Nuclei Detection in Endometrium Samples"
+HIDE_DATASET = True  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
@@ -37,7 +38,7 @@ if RELEASE_DATE is None:
 
 HOMEPAGE_URL: str = "https://endonuke.ispras.ru/"
 
-PREVIEW_IMAGE_ID: int = 230661
+PREVIEW_IMAGE_ID: int = 16562530
 
 GITHUB_URL: str = "https://github.com/dataset-ninja/endonuke"
 
@@ -75,15 +76,7 @@ ORGANIZATION_NAME: Optional[
 ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://www.ispras.ru/en/"
 
 SLYTAGSPLIT: Optional[Dict[str, List[str]]] = {
-    "annotators": [
-        "ptg1",
-        "ptg2",
-        "ptg3",
-        "stud1",
-        "stud2",
-        "stud3",
-        "stud4",
-    ]
+    "annotators": "annotator",
 }
 TAGS: List[str] = None
 
