@@ -1,6 +1,6 @@
 Dataset **EndoNuke** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](Set 'HIDE_DATASET=False' to generate download link)
+ [Download](/supervisely-supervisely-assets-public/teams_storage/I/F/Bu/bKt9664olC5PJXzc9DYfARAWwkhDki1pZYMijWyY23a67QbsjYF7sYxcNqCsFZ0Ujz8wtberQprgeDPA9uQnycnu77joJsXO6GKheG9N0rhP8YsnhTrWS9Hh1rbj.tar)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
