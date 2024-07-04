@@ -1,6 +1,6 @@
-Dataset **ENDONUKE** can be downloaded in Supervisely format:
+Dataset **EndoNuke** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/v/U/jl/tjYhswti2vTD3TLfSpfOrl4RvKO6FjMcjlUiWbHoyqkvrqM3nFb0U8uBCmkiSjbhrQLGS56mNXL8roz3uC3rlWWrIbfLyScwy6Ykf84MhpVMFiG7PiNQrNf55EWP.tar)
+ [Download](Set 'HIDE_DATASET=False' to generate download link)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
@@ -11,6 +11,8 @@ pip install --upgrade dataset-tools
 ``` python
 import dataset_tools as dtools
 
-dtools.download(dataset='ENDONUKE', dst_path='~/dtools/datasets/ENDONUKE.tar')
+dtools.download(dataset='EndoNuke', dst_dir='~/dataset-ninja/')
 ```
-The data in original format can be 🔗[downloaded here](https://www.ispras.ru/conf/endonuke/data.zip)
+Make sure not to overlook the [python code example](https://developer.supervisely.com/getting-started/python-sdk-tutorials/iterate-over-a-local-project) available on the Supervisely Developer Portal. It will give you a clear idea of how to effortlessly work with the downloaded dataset.
+
+The data in original format can be [downloaded here](https://www.ispras.ru/conf/endonuke/data.zip).

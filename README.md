@@ -1,3 +1,3 @@
-# ENDONUKE: NUCLEI DETECTION IN ENDOMETRIUM SAMPLES
+# EndoNuke: Nuclei Detection in Endometrium Samples
 
-ENDONUKE is a dataset for object detection tasks.
+EndoNuke is a dataset for instance segmentation, semantic segmentation, and object detection tasks.
