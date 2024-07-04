@@ -15,7 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME = "EndoNuke"
 PROJECT_NAME_FULL = "EndoNuke: Nuclei Detection in Endometrium Samples"
-HIDE_DATASET = True  # set False when 100% sure about repo quality
+HIDE_DATASET = False  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
@@ -70,9 +70,9 @@ AUTHORS: Optional[List[str]] = [
     "Timur Fatkhudinov",
 ]
 
-ORGANIZATION_NAME: Optional[
-    Union[str, List[str]]
-] = "Institute for System Programming of the Russian Academy of Sciences (ISP RAS)"
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = (
+    "Institute for System Programming of the Russian Academy of Sciences (ISP RAS)"
+)
 ORGANIZATION_URL: Optional[Union[str, List[str]]] = "https://www.ispras.ru/en/"
 
 SLYTAGSPLIT: Optional[Dict[str, List[str]]] = {
